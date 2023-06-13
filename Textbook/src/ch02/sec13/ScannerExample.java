@@ -15,6 +15,7 @@ public class ScannerExample {
 		String strX = scanner.nextLine();
 		int x = Integer.parseInt(strX);
 		
+		
 		System.out.print("y 값 입력 : ");
 		String strY = scanner.nextLine();
 		int y = Integer.parseInt(strY);
