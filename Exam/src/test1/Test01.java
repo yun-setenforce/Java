@@ -16,7 +16,7 @@ public class Test01 {
 		boolean var6 = true;
 		boolean var7 = false;
 		String var8 = "hello";
-		String var9 = null;
+		String var9 = null; //참조형 타입의 변수를 초기화하는 값, null
 		
 		System.out.println("var1 : " + var1);
 		System.out.println("var2 : " + var2);

@@ -11,9 +11,9 @@ public class Test09 {
 		int count = 0;
 		for(int i=0; i<=9; i++) {
 			if(i<=5) {
-				count=i;
+				count++; //count=i;
 			}else {
-				count-=1;
+				count--; //count-=1;
 			}
 			for(int j=1; j<=5-count; j++) {
 				System.out.print(" ");
