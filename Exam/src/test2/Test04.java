@@ -28,7 +28,17 @@ public class Test04 {
 					arr[i] = temp;
 				}
 			}
+			for(int n : arr) {
+				System.out.print(n+" ");
+			}
+			System.out.println();
 		}
+		
+		// 42153
+		// 24153 - 14253
+		// 14253 - 12453 
+		// 12453 - 12354
+		// 12354 - 12345
 		//정렬된 배열 출력하기 
 		for(int n : arr) {
 			System.out.print(n +" ");
