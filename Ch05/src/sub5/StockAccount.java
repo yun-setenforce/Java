@@ -27,7 +27,7 @@ public class StockAccount extends Account{
 	
 	public void buy(int amount, int price) {
 		this.amount += amount;
-		this.price -= amount * price;
+		this.balance -= amount * price;
 	}
 	
 	public void show() {
