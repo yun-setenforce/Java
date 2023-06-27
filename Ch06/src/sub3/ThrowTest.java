@@ -44,7 +44,7 @@ public class ThrowTest {
 
 		try {
 			score.check(-3);
-		} catch(MinusException e) {
+		} catch(MinusException e) { 
 			e.printStackTrace();
 		} catch (OverException e) {
 			e.printStackTrace();
