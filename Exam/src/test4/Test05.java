@@ -1,0 +1,21 @@
+package test4;
+
+/*
+ * 날짜 :2023/06/29 
+ * 이름 : 정채윤 
+ * 내용 : String,Wrapper 연습문제 
+ */
+public class Test05 {
+	public static void main(String[] args) {
+		String 	strCsv = "60,72,82,86,92";
+		String[] scores = strCsv.split(",");
+		
+		int total = 0;
+		
+		for(int i = 0; i<scores.length; i++) {
+			total += Integer.parseInt(scores[i]);
+		}
+		
+		System.out.println("총점 : " + total);
+	}
+}

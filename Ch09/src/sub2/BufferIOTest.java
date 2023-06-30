@@ -17,7 +17,7 @@ import java.io.IOException;
 public class BufferIOTest {
 
 	public static void main(String[] args) {
-		String path = "/Users/yun/workspace_lotte/workspace_lotte.zip";
+		String path = "ㅌ";
 		String target =  "/Users/yun/workspace_lotte/workspace_lotte2.zip";
 		
 		try {
