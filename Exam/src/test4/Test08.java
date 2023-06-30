@@ -21,7 +21,10 @@ public class Test08 {
 		Set<Integer> lottoSet = new HashSet<>();
 		
 		for(;;) {
-			int num = (int) (Math.random()*45) +1;
+			//int num = (int) (Math.random()*45) +1;
+			int num = (int)Math.ceil(Math.random()*45);
+			
+			//중복허용을 안 하기 때문에 array말고 집합자료구조 사용 
 			lottoSet.add(num);
 			
 			if(lottoSet.size() == 6)
