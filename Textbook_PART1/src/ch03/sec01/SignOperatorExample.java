@@ -8,7 +8,7 @@ public class SignOperatorExample {
 
 	public static void main(String[] args) {
 	byte x = -100;
-		x = -x;
+		x = (byte) -x;
 		System.out.println("x : " +x);
 		
 		byte b = 100;
