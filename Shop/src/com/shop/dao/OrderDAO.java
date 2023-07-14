@@ -2,6 +2,7 @@ package com.shop.dao;
 
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.shop.db.DBHelper;
@@ -18,10 +19,9 @@ public class OrderDAO extends DBHelper {
 	private OrderDAO() {}
 	
 	//기본 CRUD메서드
-	public String insertOrder(String loginId, int prodNo, int prodCnt) {
+	public int insertOrder(String loginId, int prodNo, int prodCnt) {
 		int result = 0;
 		int orderNoCnt =0;
-		String name = "";
 		try {
 			conn = getConnection();
 			
@@ -30,13 +30,6 @@ public class OrderDAO extends DBHelper {
 			rs  = stmt.executeQuery("SELECT MAX(`orderNo`) FROM `Order`");
 			if(rs.next()) {
 				orderNoCnt = rs.getInt(1) +1;
-			}
-			/** customer이름 구하기 **/
-			psmt = conn.prepareStatement(SQL.ORDER_OWNER);
-			psmt.setString(1, loginId);
-			rs = psmt.executeQuery();
-			if(rs.next()) {
-				name = rs.getString(1);
 			}
 
 			/** order insert **/
@@ -47,22 +40,41 @@ public class OrderDAO extends DBHelper {
 			psmt.setInt(4, prodCnt);
 			
 			result = psmt.executeUpdate();
-			if(result == 0) {
-				throw new Exception("상품 주문 실패!!");
+			close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	public OrderVO selectOrder(int orderNo) {
+		return null;
+	}
+	public List<OrderVO> selectOrders(String orderId) {
+		List<OrderVO> orders = new ArrayList<>();
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_ORDERS);
+			psmt.setString(1, orderId);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				OrderVO  vo = new OrderVO();
+				vo.setOrderNo(rs.getInt("orderNo"));
+				vo.setOrderId(rs.getString("orderId"));
+				vo.setOrderProduct(rs.getInt("orderProduct"));
+				vo.setOrderCount(rs.getInt("orderCount"));
+				vo.setOrderDate(rs.getString("orderDate").substring(0,16));
+				vo.setName(rs.getString("name"));
+				vo.setProdName(rs.getString("prodName"));
+				
+				orders.add(vo);
 			}
 			
 			close();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		return name;
-	}
-	public OrderVO selectOrder(int orderNo) {
-		return null;
-	}
-	public List<OrderDAO> selectOrders() {
-		return null;
+		return orders;
 	}
 	public int updateOrder(OrderVO vo) {
 		return 0;

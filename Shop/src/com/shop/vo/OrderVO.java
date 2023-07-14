@@ -1,5 +1,6 @@
 package com.shop.vo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class OrderVO {
@@ -8,6 +9,10 @@ public class OrderVO {
 	private int orderProduct;
 	private int orderCount;
 	private String orderDate;
+	
+	// 추가필드 
+	private String name;
+	private String prodName;
 	public int getOrderNo() {
 		return orderNo;
 	}
@@ -38,5 +43,25 @@ public class OrderVO {
 	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
-	
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getProdName() {
+		return prodName;
+	}
+	public void setProdName(String prodName) {
+		this.prodName = prodName;
+	}
+	@Override
+	public String toString() {
+		SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
+	    
+		
+		return orderNo + "\t| " + name + "\t| " + prodName + "\t| " + orderCount + "\t| " +orderDate;
+	}
+
 }
